@@ -36,14 +36,13 @@ def Python_is(text='is cool'):
 app.add_url_rule('/python', view_func=Python_is, strict_slashes=False)
 
 
-@app.route('/number/<n>', strict_slashes=False)
+@app.route('/number/<int:n>', strict_slashes=False)
 def N_is(n):
     '''method to print'''
-    if int(n):
-        return f'{escape(n)} is a number'
+    return f'{escape(n)} is a number'
 
 
-app.add_url_rule('/number/<n>', view_func=N_is, strict_slashes=False)
+app.add_url_rule('/number', view_func=N_is, strict_slashes=False)
 
 
 if __name__ == '__main__':
