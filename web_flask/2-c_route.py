@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 '''Flask module documentation'''
-from flask import Flask
+from flask import Flask, render_template
 from markupsafe import escape
 
 
@@ -22,6 +22,7 @@ def HBNB():
 @app.route('/c/<text>', strict_slashes=False)
 def C_is(text):
     '''method to print'''
+    text = text.replace('_', ' ')
     return f'C {escape(text)}'
 
 
