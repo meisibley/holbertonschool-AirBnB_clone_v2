@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 '''Flask module documentation'''
 from flask import Flask
+from markupsafe import escape
 
 
 app = Flask(__name__)
@@ -16,6 +17,12 @@ def hello_HBNB():
 def HBNB():
     '''method to print'''
     return 'HBNB'
+
+
+@app.route('/c/<text>', strict_slashes=False)
+def C_is(text):
+    '''method to print'''
+    return f'C {escape(text)}'
 
 
 if __name__ == '__main__':
