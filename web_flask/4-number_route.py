@@ -42,7 +42,7 @@ def N_is(n):
     return f'{escape(n)} is a number'
 
 
-app.add_url_rule('/number', view_func=N_is, strict_slashes=False)
+app.add_url_rule('/number/<int:n>', view_func=N_is, strict_slashes=False)
 
 
 if __name__ == '__main__':
