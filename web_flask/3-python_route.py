@@ -23,9 +23,11 @@ def c_text(text):
     n_text = text.replace('_', ' ')
     return "C {}".format(n_text)
 
+
+@app.route("/python")
 @app.route("/python/<text>", strict_slashes=False)
 def py_text(text="is cool"):
-    '''display python and text value'''
+    '''display "Python" and text value'''
     py_text = text.replace('_', ' ')
     return "Python {}".formate(py_text)
 
