@@ -24,12 +24,12 @@ def c_text(text):
     return "C {}".format(n_text)
 
 
-@app.route("/python")
+@app.route("/python", strict_slashes=False)
 @app.route("/python/<text>", strict_slashes=False)
 def py_text(text="is cool"):
     '''display "Python" and text value'''
     py_text = text.replace('_', ' ')
-    return "Python {}".formate(py_text)
+    return "Python {}".format(py_text)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000, debug=True)
