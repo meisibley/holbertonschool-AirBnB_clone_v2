@@ -19,8 +19,8 @@ def state_list():
     st_list = []
     for st in storage.all(State).values():
         st_list.append((st.name, st.id))
-        st_list.sort(key=lambda item: item[0])
-    return renden_template("7-states_list.html", states=st_list)
+        st_list.sort(key=lambda items: items[0])
+    return renden_template("7-states_list.html", states_list=st_list)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000, debug=True)
