@@ -63,5 +63,5 @@ class FileStorage:
             FileStorage.__objects.pop(key, None)
 
     def close(self):
-        '''Close method documentation'''
+        """update for Flask"""
         self.reload()

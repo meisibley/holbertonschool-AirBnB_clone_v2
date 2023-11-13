@@ -71,5 +71,5 @@ class DBStorage(FileStorage):
         self.__session = Session()
 
     def close(self):
-        """Closing the session"""
+        """update for Flask"""
         self.__session.close()
