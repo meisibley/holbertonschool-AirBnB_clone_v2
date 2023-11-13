@@ -8,18 +8,15 @@ app = Flask(__name__)
 
 
 @app.teardown_appcontext
-def cls_session(self):
+def cls_session(exc):
     '''close current SQLAlchemy session'''
     storage.close()
 
 
 @app.route("/states_list", strict_slashes=False)
-def state_list():
+def states_list():
     '''using HTML page to display states list'''
-    st_list = []
-    for st in storage.all(State).values():
-        st_list.append(st.name, st.id)
-        st_list.sort(key=lambda item: item[0])
+        st_list = storage.all("State")
     return renden_template("7-states_list.html", st_list=st_list)
 
 if __name__ == "__main__":
