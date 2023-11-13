@@ -13,7 +13,7 @@ def close_session(exc):
     storage.close()
 
 
-@app.route("/states_list", strict_slashes=False)
+@app.route('/states_list', strict_slashes=False)
 def states_list():
     '''using HTML page to display states list'''
     st_list = storage.all('State').values()
