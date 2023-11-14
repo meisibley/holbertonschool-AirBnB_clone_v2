@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-'''using Flask to display a HTML page list states, or cities w/ states, or not found'''
+'''using Flask to display a HTML page list 
+states, or cities w/ states, or not found
+'''
 from flask import Flask, render_template
 from models import storage
 from models.state import State
