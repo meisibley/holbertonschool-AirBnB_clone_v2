@@ -18,7 +18,8 @@ def close_session(exc):
 @app.route('/states/<id>', strict_slashes=False)
 def cities_states(id=None):
     '''using HTML page display cities of state'''
-    return render_template('9-states.html', states=storage.all(State), id=id)
+    return render_template('9-states.html', states=storage.all('State'),
+                           id=id)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
