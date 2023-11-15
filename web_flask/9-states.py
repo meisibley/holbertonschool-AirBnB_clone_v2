@@ -23,6 +23,6 @@ def cities_states(id=None):
         if state.id == id and id is not None:
             return render_template('9-states.html', state,
                            id=id)
-    return render_template('9-states.html')
+    return render_template('9-states.html', id=id)
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
