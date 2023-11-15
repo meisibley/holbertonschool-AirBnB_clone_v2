@@ -15,17 +15,21 @@ def close_session(exc):
 
 
 @app.route('/states', strict_slashes=False)
-@app.route('/states/<id>', strict_slashes=False)
-def cities_states(id=None):
-    '''using HTML page display cities of state'''
+def list_states():
+    '''using HTML page display states'''
     states = storage.all('State')
-    if states is None:
-        return render_template('9-states.html', state=None, states=None)
-    if id is not None:
-        for state in states:
-            if state.id == id:
-                return render_template('9-states.html', state=state, id=id)
-        return render_template('9-states.html', states=states, id=id)
-    return render_template('9-states.html', states=states, id=id)
+    return render_template('9-states.html', states=states, display='states')
+
+
+@app.route('/states/<id>', strict_slashes=False)
+def list_cities(id):
+    '''using HTML page display cities of state'''
+    states = storage.all('State').values()
+    for state in states:
+        if state.id == id:
+            return render_template('9-states.html', state=state,
+                                   display='state')
+    return render_template('9-states.html', display='nf')
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
