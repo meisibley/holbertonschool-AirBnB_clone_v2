@@ -21,10 +21,11 @@ def cities_states(id=None):
     states = storage.all('State')
     if states is None:
         return render_template('9-states.html', state=None, states=None)
-    for state in states:
-        if state.id == id and id is not None:
-            return render_template('9-states.html', state=state,
-                           id=id)
+    if id is not None:
+        for state in states:
+            if state.id == id:
+                return render_template('9-states.html', state=state, id=id)
+        return render_template('9-states.html', states=states, id=id)
     return render_template('9-states.html', states=states, id=id)
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
