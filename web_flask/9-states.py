@@ -17,7 +17,7 @@ def close_session(exc):
 @app.route('/states', strict_slashes=False)
 def list_states():
     '''using HTML page display states'''
-    states = storage.all('State').values()
+    states = storage.all('State')
     return render_template('9-states.html', states=states, display='states')
 
 
